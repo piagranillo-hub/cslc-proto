@@ -441,10 +441,10 @@ html.lenis, html.lenis body { height: auto; }
   .badges img { width: 84px; height: 78px; }
 
   /* Problem */
-  .problem { padding: 48px 16px 24px; background: none; border-radius: 0; }
-  .problem-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 40px; background: var(--bg-card); border-top-right-radius: 80px; }
-  .problem-media { height: 300px; border-top-left-radius: 0; background: none; }
-  .problem-media img { object-fit: cover; object-position: center 30%; }
+  .problem { padding: 48px 0 0; background: none; border-radius: 0; }
+  .problem-card { grid-template-columns: 1fr; padding: 32px 16px 48px; gap: 40px; background: var(--bg-card); border-radius: 0; }
+  .problem-media { height: auto; aspect-ratio: 1172 / 1200; border-radius: 0; background: none; }
+  .problem-media img { object-fit: contain; object-position: center bottom; }
   .problem-copy { padding: 0; gap: 32px; }
   .problem .bar-list { font-size: 18px; }
   .problem-note { font-size: 16px; }
@@ -485,7 +485,7 @@ html.lenis, html.lenis body { height: auto; }
 
   /* Testimonials */
   .testimonials { padding: 48px 0 32px; gap: 32px; }
-  .tcard { width: 300px; height: 320px; padding: 28px; }
+  .tcard { width: 240px; height: 320px; padding: 28px; }
   .why-media { border-radius: 0; }
   .tcard blockquote { font-size: 20px; }
   .tcard figcaption { font-size: 14px; }
@@ -497,7 +497,7 @@ html.lenis, html.lenis body { height: auto; }
   .why { padding: 48px 16px; gap: 32px; border-top-left-radius: 0; }
   .why .h2.center { text-align: left; }
   .why-grid { grid-template-columns: 1fr; gap: 16px; }
-  .why-media { min-height: 374px; width: 343px; max-width: 100%; }
+  .why-media { min-height: 374px; width: 100%; }
   .why-cards { grid-template-columns: 1fr; gap: 16px; }
   .why-card { min-height: 0; padding: 16px; gap: 16px; border-radius: 8px; }
   .why-card .h5 { font-size: 20px; }
