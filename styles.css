@@ -2,7 +2,7 @@
    CSLC — Landing page (built from Figma "CSLC | Web pages", Home • Desktop/Mobile)
    ============================================================ */
 
-/* Fonts: IvyPresto Display + Neue Haas Unica via the Adobe Fonts kit (kxx6dxo) */
+/* Fonts via the Adobe Fonts kit (kxx6dxo) */
 
 :root {
   --font-heading: "ivypresto-display", "IvyPresto Text", Georgia, serif;
@@ -121,7 +121,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .problem { padding: 0 var(--page-pad); background: var(--bg-card); border-top-right-radius: var(--radius-feature); }
 .problem-card { display: grid; grid-template-columns: 586px 1fr; gap: 48px; align-items: center; padding-right: 48px; overflow: hidden; }
 .problem-media { height: 600px; position: relative; border-top-left-radius: var(--radius-feature); overflow: hidden; }
-.problem-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; mix-blend-mode: multiply; }
+.problem-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .problem-copy { display: flex; flex-direction: column; gap: 32px; max-width: 632px; }
 
 /* ---------- Treatments ---------- */
