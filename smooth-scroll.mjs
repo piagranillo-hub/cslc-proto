@@ -22,7 +22,9 @@ if (!reduceMotion) {
   const build = () => {
     removers.forEach((r) => r());
     removers = [];
-    if (!isDesktop()) return;
+    // no snapping on narrow screens (and Snap must not run with an empty list)
+    if (!isDesktop()) return snap.stop();
+    snap.start();
     const vh = window.innerHeight, nav = NAV(), pts = [];
     sections.forEach((s) => {
       const docTop = s.getBoundingClientRect().top + window.scrollY;

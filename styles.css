@@ -95,7 +95,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; overflow: hidden; border-bottom-left-radius: var(--radius-feature); background: var(--bg-hero) url("assets/hero-light.webp") center / cover no-repeat; min-height: 817px; display: grid; grid-template-columns: 1fr 1fr; }
+.hero { position: relative; overflow: hidden; border-bottom-left-radius: var(--radius-feature); background: var(--bg-secondary); min-height: 817px; display: grid; grid-template-columns: 1fr 1fr; }
 .hero-copy { display: flex; justify-content: flex-end; align-items: center; padding: 64px 80px 64px var(--page-pad); }
 .hero-copy-inner { width: 100%; max-width: 560px; display: flex; flex-direction: column; gap: 40px; }
 .hero-text { display: flex; flex-direction: column; gap: 24px; }
@@ -118,10 +118,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .badges { padding: 0; margin: 0; }
 
 /* ---------- Problem / Solution ---------- */
-.problem { padding: 0 var(--page-pad); }
-.problem-card { background: var(--bg-card); border-top-left-radius: var(--radius-feature); display: grid; grid-template-columns: 586px 1fr; gap: 48px; align-items: center; padding-right: 48px; overflow: hidden; }
+.problem { padding: 0 var(--page-pad); background: var(--bg-card); border-top-right-radius: var(--radius-feature); }
+.problem-card { display: grid; grid-template-columns: 586px 1fr; gap: 48px; align-items: center; padding-right: 48px; overflow: hidden; }
 .problem-media { height: 600px; position: relative; border-top-left-radius: var(--radius-feature); overflow: hidden; }
-.problem-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+.problem-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; mix-blend-mode: multiply; }
 .problem-copy { display: flex; flex-direction: column; gap: 32px; max-width: 632px; }
 
 /* ---------- Treatments ---------- */
@@ -129,7 +129,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .section-head { display: flex; flex-direction: column; gap: 24px; text-align: center; }
 .treat-wrap { width: 100%; display: flex; flex-direction: column; gap: 20px; }
 .treat { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 48px; }
-.treat-list { width: 478px; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 44px; }
+.treat-list { width: 478px; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 40px; }
 .treat-trigger.h4 { letter-spacing: 0; }
 .treat-trigger { text-align: left; color: var(--neutral-300); transition: color var(--duration-fast) var(--ease-smooth-out); width: 100%; }
 .treat-trigger:hover { color: var(--text-primary); }
@@ -139,32 +139,31 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .treat-item.is-open .treat-panel > div { opacity: 1; filter: blur(0); }
 .treat-item.is-open .treat-panel { grid-template-rows: 1fr; }
 .treat-panel p { padding-top: 16px; }
+.treat-good { margin-top: 16px; padding: 0 12px; border-left: 1px solid var(--brand-500); display: flex; flex-direction: column; font-size: 16px; line-height: 1.5; }
+.treat-good strong { font-weight: 500; color: var(--text-primary); }
+.treat-good em { font-style: italic; }
 .treat-disclaimer { font-size: 12px; color: var(--neutral-400); }
 
 /* ---------- Testimonials ---------- */
-.testimonials { padding: 128px 0 var(--section-y); display: flex; flex-direction: column; gap: 80px; }
+.testimonials { padding: var(--section-y) 0; display: flex; flex-direction: column; gap: 80px; }
 .testimonials-head { padding: 0 var(--page-pad); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
 .carousel-controls { display: flex; gap: 12px; }
-/* Card = quote panel + photo panel (Figma 79:25386): 600×400, top-right radius 80 */
-.tcard { flex: none; width: 600px; height: 400px; display: grid; grid-template-columns: 1fr 1fr; border-top-right-radius: 80px; overflow: hidden; background: var(--bg-card); }
-.tcard.dark { background: var(--bg-tertiary); }
-.tcard.tan { background: var(--brand-200); }
-.tcard-quote { padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
-.tcard.dark .tcard-quote { color: var(--neutral-100); }
+/* Quote cards (V2, Figma 200:3712): 300×400, square corners */
+.tcard { flex: none; width: 300px; height: 400px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; background: var(--bg-card); }
+.tcard.dark { background: var(--bg-tertiary); color: var(--neutral-100); }
 .tcard.dark figcaption { color: var(--white); }
+.tcard.tan { background: var(--brand-200); }
 .tcard .stars { display: flex; gap: 2px; color: var(--brand-500); }
 .tcard.dark .stars { color: #f3e8e1; }
 .tcard .stars .icon { width: 22px; height: 22px; fill: currentColor; stroke: none; }
 .tcard blockquote { font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: 24px; line-height: 1.3; letter-spacing: -0.02em; }
 .tcard figcaption { font-weight: 400; font-size: 16px; line-height: 1.5; }
-.tcard-photo { position: relative; overflow: hidden; background: var(--neutral-100); }
-.tcard-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .testimonials-cta { display: flex; justify-content: center; }
 
 /* ---------- Why CSLC ---------- */
 .why { background: var(--bg-secondary); border-top-left-radius: var(--radius-feature); padding: var(--section-y) var(--page-pad); display: flex; flex-direction: column; gap: 48px; }
 .why-grid { display: grid; grid-template-columns: 536px 1fr; gap: 32px; align-items: stretch; }
-.why-media { position: relative; background: var(--white); border-top-left-radius: var(--radius-feature); overflow: hidden; min-height: 584px; }
+.why-media { position: relative; background: var(--white); overflow: hidden; min-height: 584px; }
 .why-media img { position: absolute; left: 14.2%; top: 6.3%; width: 71.5%; height: 100%; object-fit: cover; object-position: top; }
 .why-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .why-card { background: var(--white); padding: 24px; min-height: 280px; display: flex; flex-direction: column; gap: 24px; }
@@ -200,13 +199,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- Footer ---------- */
 /* Figma "Footer / 7" (169:3328): one credits row + oversized "age well" cropped at the bottom */
-.footer { position: relative; overflow: hidden; background: var(--bg-dark); color: #777272; padding: 48px 64px 0; }
+.footer { position: relative; overflow: hidden; background: var(--bg-dark); color: #777272; padding: 48px 64px 0; border-top-left-radius: var(--radius-feature); }
+.footer-logo { display: flex; width: max-content; margin: 0 auto 80px; }
 .footer-inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
 .footer-credits { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; font-family: "Inter", var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.5; }
 .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
 .footer-legal a { text-decoration: underline; text-underline-offset: 3px; transition: color var(--duration-fast) var(--ease-smooth-out); }
 .footer-legal a:hover { color: var(--neutral-300); }
-.watermark { position: relative; display: block; max-width: 1280px; margin: 63px auto -.06em; font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: min(386px, calc((100vw - 128px) / 3.314)); line-height: 1; letter-spacing: -0.02em; color: rgb(73 64 65 / .2); white-space: nowrap; pointer-events: none; user-select: none; }
+.watermark { position: relative; display: block; max-width: 1280px; margin: 0 auto -.06em; font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: min(386px, calc((100vw - 128px) / 3.314)); line-height: 1; letter-spacing: -0.02em; color: rgb(73 64 65 / .2); white-space: nowrap; pointer-events: none; user-select: none; }
 
 
 /* ---------- Stats: number pop-in (transitions.dev) ---------- */
@@ -242,6 +242,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .js .treatments[data-treat-section] { height: 340vh; }
 .js .treat-sticky { position: sticky; top: 78px; height: calc(100vh - 78px); padding: 32px 0; }
 .treat-panel strong { font-weight: 400; color: var(--brand-500); }
+.treat-panel .treat-good strong { font-weight: 500; color: var(--text-primary); }
 .treat-progress { display: none; }
 .treat-col { width: 600px; flex: none; display: flex; flex-direction: column; gap: 12px; }
 .ba { --pos: 50%; position: relative; width: 100%; aspect-ratio: 1; max-height: calc(100vh - 330px); overflow: hidden; background: #e7e7e7; user-select: none; touch-action: pan-y; }
@@ -279,6 +280,30 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .how-float.is-on { opacity: 1; transition-duration: var(--duration-fast); }
 .how-float img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); filter: blur(var(--blur-small)); transition: transform var(--duration-quick) var(--ease-smooth-out), filter var(--duration-quick) var(--ease-smooth-out); }
 .how-float.is-on img { transform: scale(1); filter: blur(0); transition-duration: var(--duration-slow); }
+
+/* ---------- How it works V2: illustrated steps (Figma 200:5251) ---------- */
+.how.how-v2 { padding: 48px var(--page-pad); gap: 48px; }
+.how-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.how-step { padding: 32px 0; display: flex; flex-direction: column; gap: 24px; }
+.how-ill { aspect-ratio: 316 / 218; background: var(--bg-secondary); border: 1px solid var(--neutral-100); display: grid; place-items: center; overflow: hidden; position: relative; }
+.how-ill.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.how-n { font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: 80px; line-height: 1.1; letter-spacing: -0.02em; color: var(--neutral-300); }
+.how-step p { font-size: 18px; }
+.ill-stack { width: 84%; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.ill-toast { width: 100%; display: flex; align-items: center; gap: 10px; padding: 12px; background: var(--white); box-shadow: 0 1px 2px rgba(73,64,65,.06), 0 8px 24px rgba(73,64,65,.08); font-size: 12px; line-height: 1.4; }
+.ill-toast strong { display: block; font-weight: 500; color: var(--text-primary); }
+.ill-toast span:not(.ill-check) { color: var(--neutral-400); font-size: 11px; }
+.ill-toast.ghost { width: 90%; opacity: .5; box-shadow: none; }
+.ill-check { width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--brand-400); color: var(--white); display: grid; place-items: center; }
+.ill-toast.ghost .ill-check { background: var(--neutral-100); }
+.ill-check .icon { width: 14px; height: 14px; stroke-width: 1.6; }
+.ill-plan { width: 84%; padding: 14px; background: var(--white); box-shadow: 0 1px 2px rgba(73,64,65,.06), 0 8px 24px rgba(73,64,65,.08); display: flex; flex-direction: column; gap: 10px; font-size: 11px; }
+.ill-title { font-family: var(--font-heading); font-weight: 400; font-size: 16px; letter-spacing: -0.01em; }
+.ill-timeline { position: relative; display: flex; justify-content: space-between; }
+.ill-timeline::before { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 1px; background: var(--neutral-100); }
+.ill-timeline i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-400); }
+.ill-labels, .ill-meta { display: flex; justify-content: space-between; }
+.ill-meta { padding-top: 8px; border-top: 1px solid var(--neutral-100); color: var(--neutral-400); }
 
 /* ---------- Testimonials marquee ---------- */
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
@@ -416,8 +441,8 @@ html.lenis, html.lenis body { height: auto; }
   .badges img { width: 84px; height: 78px; }
 
   /* Problem */
-  .problem { padding: 48px 16px 24px; }
-  .problem-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 40px; border-top-left-radius: 80px; }
+  .problem { padding: 48px 16px 24px; background: none; border-radius: 0; }
+  .problem-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 40px; background: var(--bg-card); border-top-right-radius: 80px; }
   .problem-media { height: 300px; border-top-left-radius: 0; background: none; }
   .problem-media img { object-fit: cover; object-position: center 30%; }
   .problem-copy { padding: 0; gap: 32px; }
@@ -445,6 +470,10 @@ html.lenis, html.lenis body { height: auto; }
 
   /* How it works */
   .how { padding: 24px 16px; gap: 32px; }
+  .how.how-v2 { padding: 48px 16px; gap: 32px; }
+  .how-steps { grid-template-columns: 1fr; gap: 8px; }
+  .how-step { padding: 16px 0; gap: 16px; }
+  .how-n { font-size: 64px; }
   .how-row { grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0 32px; }
   .how-row.is-active { gap: 20px 12px; }
   .how-title { font-size: 24px; grid-column: 1; grid-row: 1; }
@@ -456,8 +485,8 @@ html.lenis, html.lenis body { height: auto; }
 
   /* Testimonials */
   .testimonials { padding: 48px 0 32px; gap: 32px; }
-  .tcard { width: 480px; height: 320px; border-top-right-radius: 64px; }
-  .tcard-quote { padding: 24px 20px; }
+  .tcard { width: 300px; height: 320px; padding: 28px; }
+  .why-media { border-radius: 0; }
   .tcard blockquote { font-size: 20px; }
   .tcard figcaption { font-size: 14px; }
   .tcard .stars .icon { width: 18px; height: 18px; }
@@ -493,8 +522,9 @@ html.lenis, html.lenis body { height: auto; }
   .final-media { height: 460px; }
 
   /* Footer */
-  .footer { padding: 48px 20px 0; }
+  .footer { padding: 48px 20px 0; border-top-left-radius: 80px; }
   .footer-credits { flex-direction: column-reverse; align-items: center; text-align: center; font-size: 12px; gap: 24px; }
   .footer-legal { flex-direction: column; align-items: center; gap: 12px; }
+  .footer-logo { margin-bottom: 48px; }
   .watermark { font-size: calc((100vw - 40px) / 3.314); margin: 32px 0 -.06em; }
 }

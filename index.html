@@ -10,12 +10,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap">
-<link rel="stylesheet" href="styles.css?v=66">
+<link rel="stylesheet" href="styles.css?v=74">
 </head>
 <body>
 
 <!-- Icons: Iconoir v7.12.1 (MIT), 1px stroke via .icon -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13L9 17L19 7"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M6 12H12M18 12H12M12 12V6M12 12V18"/></symbol>
   <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12H18"/></symbol>
   <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6L9 12L15 18"/></symbol>
@@ -98,7 +99,7 @@ L  C</span>
   <!-- 3. Problem / Solution -->
   <section class="problem">
     <div data-reveal class="problem-card">
-      <div class="problem-media"><img class="t-img" src="assets/problem-mirror.webp" alt="Woman smiling at her reflection in a CSLC hand mirror" width="1400" height="1399"></div>
+      <div class="problem-media"><img class="t-img" src="assets/problem-mirror-v2.webp" alt="Woman touching her cheek as she looks into a standing mirror" width="1400" height="1382"></div>
       <div class="problem-copy">
         <h2 class="h2" data-lines>Knowing what's changing<br>is the first step</h2>
         <ul class="bar-list tan">
@@ -123,23 +124,23 @@ L  C</span>
         <ul class="treat-list" data-treatments>
           <li class="treat-item is-open">
             <button class="treat-trigger h4" aria-expanded="true" aria-controls="t1">Line-smoothing injections</button>
-            <div class="treat-panel" id="t1"><div><p>Quick injections relax the muscles behind expression lines.<br> <strong>May be good for:</strong> Forehead lines, frown lines, and crow's feet</p></div></div>
+            <div class="treat-panel" id="t1"><div><p>Quick injections relax the muscles behind expression lines.</p><div class="treat-good"><strong>May be good for</strong><em>Forehead lines, frown lines, and crow's feet</em></div></div></div>
           </li>
           <li class="treat-item">
             <button class="treat-trigger h4" aria-expanded="false" aria-controls="t2">Dermal fillers</button>
-            <div class="treat-panel" id="t2"><div><p>Smooth gel injections restore volume and balance to areas like the cheeks, lips, and temples.<br> <strong>May be good for:</strong> Lost volume, thinning lips, and facial balance</p></div></div>
+            <div class="treat-panel" id="t2"><div><p>Smooth gel injections restore volume and balance to areas like the cheeks, lips, and temples.</p><div class="treat-good"><strong>May be good for</strong><em>Lost volume, thinning lips, and facial balance</em></div></div></div>
           </li>
           <li class="treat-item">
             <button class="treat-trigger h4" aria-expanded="false" aria-controls="t3">Microneedling</button>
-            <div class="treat-panel" id="t3"><div><p>Fine needles create tiny channels that encourage your skin's natural renewal.<br> <strong>May be good for:</strong> Uneven texture, loosening skin, and overall skin quality</p></div></div>
+            <div class="treat-panel" id="t3"><div><p>Fine needles create tiny channels that encourage your skin's natural renewal.</p><div class="treat-good"><strong>May be good for</strong><em>Uneven texture, loosening skin, and overall skin quality</em></div></div></div>
           </li>
           <li class="treat-item">
             <button class="treat-trigger h4" aria-expanded="false" aria-controls="t4">Laser and light treatments</button>
-            <div class="treat-panel" id="t4"><div><p>Targeted light energy treats visible concerns in the skin.<br> <strong>May be good for:</strong> Sun spots, redness, and uneven skin tone</p></div></div>
+            <div class="treat-panel" id="t4"><div><p>Targeted light energy treats visible concerns in the skin.</p><div class="treat-good"><strong>May be good for</strong><em>Sun spots, redness, and uneven skin tone</em></div></div></div>
           </li>
           <li class="treat-item">
             <button class="treat-trigger h4" aria-expanded="false" aria-controls="t5">Medical-grade facials</button>
-            <div class="treat-panel" id="t5"><div><p>Provider-guided facials use medical-grade products to care for your skin.<br> <strong>May be good for:</strong> Ongoing skin health and a healthy glow</p></div></div>
+            <div class="treat-panel" id="t5"><div><p>Provider-guided facials use medical-grade products to care for your skin.</p><div class="treat-good"><strong>May be good for</strong><em>Ongoing skin health and a healthy glow</em></div></div></div>
           </li>
         </ul>
         <div class="treat-col">
@@ -177,36 +178,43 @@ L  C</span>
     </div>
   </section>
 
-  <!-- 5. How it works -->
-  <section class="how" data-how>
-    <h2 class="h2" data-lines>Here's what happens<br>at your first visit</h2>
-    <ol class="how-list" data-stagger>
-      <li class="how-row" data-img="assets/how-step-1.webp">
-        <h3 class="how-title">Book your consult</h3>
-        <p class="how-text">Book online at the CSLC location closest to you.</p>
-        <span class="how-num" aria-hidden="true">01</span>
-        <img class="how-inline" src="assets/how-step-1.webp" alt="" loading="lazy">
+  <!-- 5. How it works (V2: illustrated steps) -->
+  <section class="how how-v2">
+    <h2 class="h2" data-lines>Here's what happens at your first visit</h2>
+    <ol class="how-steps" data-stagger>
+      <li class="how-step">
+        <div class="how-ill" aria-hidden="true">
+          <div class="ill-stack">
+            <div class="ill-toast"><span class="ill-check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><strong>Consult confirmed</strong><span>Thu · 10:30 AM · Ann Arbor</span></div></div>
+            <div class="ill-toast ghost"><span class="ill-check"></span><div><strong>Reminder set</strong><span>1 day before</span></div></div>
+          </div>
+        </div>
+        <span class="how-n" aria-hidden="true">1.</span>
+        <p>Book online at the CSLC location closest to you.</p>
       </li>
-      <li class="how-row" data-img="assets/how-step-2.webp">
-        <h3 class="how-title">Talk it through</h3>
-        <p class="how-text">Tell your provider what you'd like to change and what you'd like to keep.</p>
-        <span class="how-num" aria-hidden="true">02</span>
-        <img class="how-inline" src="assets/how-step-2.webp" alt="" loading="lazy">
+      <li class="how-step">
+        <div class="how-ill photo" aria-hidden="true"><img class="t-img" src="assets/how-v2-step-2.webp" alt="" width="948" height="654" loading="lazy"></div>
+        <span class="how-n" aria-hidden="true">2.</span>
+        <p>Tell your provider what you'd like to change and what you'd like to keep.</p>
       </li>
-      <li class="how-row" data-img="assets/how-step-3.webp">
-        <h3 class="how-title">Get your plan</h3>
-        <p class="how-text">Get a plan that fits your goals, budget, and recovery time.</p>
-        <span class="how-num" aria-hidden="true">03</span>
-        <img class="how-inline" src="assets/how-step-3.webp" alt="" loading="lazy">
+      <li class="how-step">
+        <div class="how-ill" aria-hidden="true">
+          <div class="ill-plan">
+            <strong class="ill-title">Whole-face plan</strong>
+            <div class="ill-timeline"><i></i><i></i><i></i></div>
+            <div class="ill-labels"><span>Today</span><span>Week 4</span><span>Month 3</span></div>
+            <div class="ill-meta"><span>Fits your budget</span><span>Low downtime</span></div>
+          </div>
+        </div>
+        <span class="how-n" aria-hidden="true">3.</span>
+        <p>Get a plan that fits your goals, budget, and recovery time.</p>
       </li>
-      <li class="how-row" data-img="assets/how-step-4.webp">
-        <h3 class="how-title">Start today, or take it home</h3>
-        <p class="how-text">Start treatment the same day or take the plan home with no commitment.</p>
-        <span class="how-num" aria-hidden="true">04</span>
-        <img class="how-inline" src="assets/how-step-4.webp" alt="" loading="lazy">
+      <li class="how-step">
+        <div class="how-ill photo" aria-hidden="true"><img class="t-img" src="assets/how-v2-step-4.webp" alt="" width="948" height="654" loading="lazy"></div>
+        <span class="how-n" aria-hidden="true">4.</span>
+        <p>Start treatment the same day or take the plan home with no commitment.</p>
       </li>
     </ol>
-    <div class="how-float" aria-hidden="true"><img src="assets/how-step-1.webp" alt=""></div>
   </section>
 
   <!-- 6. Testimonials -->
@@ -216,30 +224,12 @@ L  C</span>
     </div>
     <div class="marquee" data-marquee>
       <div class="marquee-track">
-      <figure class="tcard light">
-        <div class="tcard-quote"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"I was super anxious coming in for the first time, but their kindness truly made all the difference."</blockquote><figcaption>–Shezaf N., Traverse City</figcaption></div>
-        <div class="tcard-photo" aria-hidden="true"><img class="t-img" src="assets/testimonial-photo-1.webp" alt="" width="600" height="800" loading="lazy"></div>
-      </figure>
-      <figure class="tcard dark">
-        <div class="tcard-quote"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"I felt like she listened to my concerns but wasn't pushy."</blockquote><figcaption>–Cameron H., Winter Park</figcaption></div>
-        <div class="tcard-photo" aria-hidden="true"><img class="t-img" src="assets/testimonial-photo-2.webp" alt="" width="600" height="800" loading="lazy"></div>
-      </figure>
-      <figure class="tcard tan">
-        <div class="tcard-quote"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"A couple days later and I'm in love with the results!"</blockquote><figcaption>–Alexis G., Ann Arbor</figcaption></div>
-        <div class="tcard-photo" aria-hidden="true"><img class="t-img" src="assets/testimonial-photo-3.webp" alt="" width="600" height="800" loading="lazy"></div>
-      </figure>
-      <figure class="tcard light">
-        <div class="tcard-quote"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"I ask her for a natural look and she respects my choice."</blockquote><figcaption>–M.S. D., Marco Island</figcaption></div>
-        <div class="tcard-photo" aria-hidden="true"><img class="t-img" src="assets/testimonial-photo-1.webp" alt="" width="600" height="800" loading="lazy"></div>
-      </figure>
-      <figure class="tcard dark">
-        <div class="tcard-quote"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"She gave honest answers and genuine feedback."</blockquote><figcaption>–Joanie R., Winter Park</figcaption></div>
-        <div class="tcard-photo" aria-hidden="true"><img class="t-img" src="assets/testimonial-photo-2.webp" alt="" width="600" height="800" loading="lazy"></div>
-      </figure>
-      <figure class="tcard tan">
-        <div class="tcard-quote"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"The facility is clean and I felt very safe. I love the results already."</blockquote><figcaption>–Mary H., Naples</figcaption></div>
-        <div class="tcard-photo" aria-hidden="true"><img class="t-img" src="assets/testimonial-photo-3.webp" alt="" width="600" height="800" loading="lazy"></div>
-      </figure>
+      <figure class="tcard light"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"I was super anxious coming in for the first time, but their kindness truly made all the difference."</blockquote><figcaption>–Shezaf N., Traverse City</figcaption></figure>
+      <figure class="tcard dark"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"I felt like she listened to my concerns but wasn't pushy."</blockquote><figcaption>–Cameron H., Winter Park</figcaption></figure>
+      <figure class="tcard tan"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"A couple days later and I'm in love with the results!"</blockquote><figcaption>–Alexis G., Ann Arbor</figcaption></figure>
+      <figure class="tcard light"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"I ask her for a natural look and she respects my choice."</blockquote><figcaption>–M.S. D., Marco Island</figcaption></figure>
+      <figure class="tcard dark"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"She gave honest answers and genuine feedback."</blockquote><figcaption>–Joanie R., Winter Park</figcaption></figure>
+      <figure class="tcard tan"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><blockquote>"The facility is clean and I felt very safe. I love the results already."</blockquote><figcaption>–Mary H., Naples</figcaption></figure>
       </div>
     </div>
     <div class="testimonials-cta"><a href="#book" class="btn">Book My Complimentary Consult</a></div>
@@ -251,7 +241,7 @@ L  C</span>
     <div data-reveal class="why-grid">
       <div class="why-media"><img class="t-img" src="assets/provider.webp" alt="CSLC provider in a white coat" width="1200" height="1830"></div>
       <div class="why-cards" data-stagger>
-        <div class="why-card"><svg class="icon" aria-hidden="true"><use href="#i-graduation-cap"/></svg><div class="why-card-copy"><h3 class="h5">CSLC trains its own providers</h3><p class="text-md">Many injectors begin treating patients after a one-day certification course. Every CSLC provider completes CSLC University and passes a test on each treatment before performing it.</p></div></div>
+        <div class="why-card"><svg class="icon" aria-hidden="true"><use href="#i-graduation-cap"/></svg><div class="why-card-copy"><h3 class="h5">CSLC trains its own providers</h3><p class="text-md">At other aesthetic centers, many providers begin treating patients after a one-day certification course. At CSLC, every provider completes CSLC University and passes a test on each treatment before performing it.</p></div></div>
         <div class="why-card"><svg class="icon" aria-hidden="true"><use href="#i-community"/></svg><div class="why-card-copy"><h3 class="h5">Specialists handle each part of your plan</h3><p class="text-md">Skin care, injectables, and laser treatments each have dedicated experts who work together, so your results look cohesive.</p></div></div>
         <div class="why-card"><svg class="icon" aria-hidden="true"><use href="#i-chat-bubble-check"/></svg><div class="why-card-copy"><h3 class="h5">You get advice based on what your face needs</h3><p class="text-md">Every recommendation centers on your goals and budget, without a sales pitch.</p></div></div>
         <div class="why-card"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><div class="why-card-copy"><h3 class="h5">Your plan goes wherever you go</h3><p class="text-md">Visit any of CSLC's 20+ locations in Michigan and Florida, and your provider picks up where your last visit left off.</p></div></div>
@@ -305,6 +295,11 @@ L  C</span>
 <!-- 11. Footer -->
 <footer class="footer">
   <div class="footer-inner">
+    <a href="#" class="logo footer-logo" aria-label="Cosmetic Skin &amp; Laser Center — home">
+      <span class="logo-mark" aria-hidden="true">C  S
+L  C</span>
+      <span class="logo-word">Cosmetic<br>Skin &amp; Laser<br>Center</span>
+    </a>
     <div class="footer-credits">
       <p>© 2026 Cosmetic Skin &amp; Laser Center. All rights reserved.</p>
       <nav class="footer-legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies Settings</a></nav>
@@ -316,7 +311,7 @@ L  C</span>
 <!-- Mobile sticky CTA -->
 <div class="mobile-cta"><a href="#book" class="btn">Book My Complimentary Consult</a></div>
 
-<script src="main.js?v=66"></script>
-<script type="module" src="smooth-scroll.mjs?v=66"></script>
+<script src="main.js?v=74"></script>
+<script type="module" src="smooth-scroll.mjs?v=74"></script>
 </body>
 </html>
