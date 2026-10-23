@@ -162,11 +162,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- Why CSLC ---------- */
 .why { background: var(--bg-secondary); border-top-left-radius: var(--radius-feature); padding: var(--section-y) var(--page-pad); display: flex; flex-direction: column; gap: 48px; }
-.why-grid { display: grid; grid-template-columns: 536px 1fr; gap: 32px; align-items: stretch; }
+/* photo + cards share one grid row, so the 2×2 cards always match the photo height; the credit sits in a row below */
+.why-grid { display: grid; grid-template-columns: 536px 1fr; gap: 16px 32px; align-items: stretch; }
 .why-media { position: relative; background: var(--white); overflow: hidden; min-height: 584px; }
 .why-media img { position: absolute; left: 14.2%; top: 6.3%; width: 71.5%; height: 100%; object-fit: cover; object-position: top; }
-.why-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.why-card { background: var(--white); padding: 24px; min-height: 280px; display: flex; flex-direction: column; gap: 24px; }
+.why-cards { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 24px; grid-column: 2; grid-row: 1; }
+.why-card { background: var(--white); padding: 24px; display: flex; flex-direction: column; gap: 24px; }
 .why-card .icon { width: 28px; height: 28px; color: var(--brand-500); }
 .why-card-copy { display: flex; flex-direction: column; gap: 16px; }
 
@@ -206,7 +207,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
 .footer-legal a { text-decoration: underline; text-underline-offset: 3px; transition: color var(--duration-fast) var(--ease-smooth-out); }
 .footer-legal a:hover { color: var(--neutral-300); }
-.watermark { position: relative; display: block; width: 100vw; margin: 0 0 -.06em calc(50% - 50vw); text-align: center; font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: calc(100vw / 2.95); line-height: 1; letter-spacing: -0.02em; color: rgb(73 64 65 / .2); white-space: nowrap; pointer-events: none; user-select: none; }
+.watermark { position: relative; display: block; width: 100vw; margin: 0 0 -.06em calc(50% - 50vw); text-align: center; font-family: var(--font-heading); font-weight: 400; font-size: calc(100vw / 2.95); line-height: 1; letter-spacing: -0.02em; color: rgb(73 64 65 / .2); white-space: nowrap; pointer-events: none; user-select: none; }
 
 
 /* ---------- Stats: number pop-in (transitions.dev) ---------- */
@@ -308,8 +309,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- Photo credits (Figma: 14px Light, brown) ---------- */
 .photo-credit { font-size: 14px; font-weight: 300; line-height: 1.5; color: var(--text-primary); }
-.why-photo { margin: 0; display: flex; flex-direction: column; gap: 16px; }
-.why-photo .why-media { flex: 1; }
+.why-photo { display: contents; }
+.why-photo .why-media { grid-column: 1; grid-row: 1; }
+.why-photo figcaption { grid-column: 1; grid-row: 2; }
 .mobile-only { display: none; }
 
 /* ---------- How it works: step animations (transitions.dev recipes + Lenis-driven parallax) ---------- */
@@ -552,7 +554,8 @@ html.lenis, html.lenis body { height: auto; }
   .why .h2.center { text-align: left; }
   .why-grid { grid-template-columns: 1fr; gap: 16px; }
   .why-media { min-height: 374px; width: 100%; }
-  .why-cards { grid-template-columns: 1fr; gap: 16px; }
+  .why-cards { grid-template-columns: 1fr; grid-template-rows: none; gap: 16px; grid-column: auto; grid-row: auto; }
+  .why-photo .why-media, .why-photo figcaption { grid-column: auto; grid-row: auto; }
   .why-card { min-height: 0; padding: 16px; gap: 16px; border-radius: 8px; }
   .why-card .h5 { font-size: 20px; }
 
