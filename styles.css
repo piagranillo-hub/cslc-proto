@@ -206,7 +206,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
 .footer-legal a { text-decoration: underline; text-underline-offset: 3px; transition: color var(--duration-fast) var(--ease-smooth-out); }
 .footer-legal a:hover { color: var(--neutral-300); }
-.watermark { position: relative; display: block; max-width: 1280px; margin: 0 auto -.06em; font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: min(386px, calc((100vw - 128px) / 3.314)); line-height: 1; letter-spacing: -0.02em; color: rgb(73 64 65 / .2); white-space: nowrap; pointer-events: none; user-select: none; }
+.watermark { position: relative; display: block; width: 100vw; margin: 0 0 -.06em calc(50% - 50vw); text-align: center; font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: calc(100vw / 2.95); line-height: 1; letter-spacing: -0.02em; color: rgb(73 64 65 / .2); white-space: nowrap; pointer-events: none; user-select: none; }
 
 
 /* ---------- Stats: number pop-in (transitions.dev) ---------- */
@@ -282,7 +282,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .how-float.is-on img { transform: scale(1); filter: blur(0); transition-duration: var(--duration-slow); }
 
 /* ---------- How it works V2: illustrated steps (Figma 200:5251) ---------- */
-.how.how-v2 { padding: 48px var(--page-pad); gap: 48px; }
+.how.how-v2 { padding: 96px var(--page-pad); gap: 48px; }
+.how.how-v2 .how-steps + .photo-credit { margin-top: -32px; }
 .how-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .how-step { padding: 32px 0; display: flex; flex-direction: column; gap: 24px; }
 .how-ill { aspect-ratio: 316 / 218; background: var(--bg-secondary); border: 1px solid var(--neutral-100); display: grid; place-items: center; overflow: hidden; position: relative; }
@@ -304,6 +305,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .ill-timeline i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-400); }
 .ill-labels, .ill-meta { display: flex; justify-content: space-between; }
 .ill-meta { padding-top: 8px; border-top: 1px solid var(--neutral-100); color: var(--neutral-400); }
+
+/* ---------- Photo credits (Figma: 14px Light, brown) ---------- */
+.photo-credit { font-size: 14px; font-weight: 300; line-height: 1.5; color: var(--text-primary); }
+.why-photo { margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.why-photo .why-media { flex: 1; }
+.mobile-only { display: none; }
 
 /* ---------- Testimonials marquee ---------- */
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
@@ -470,7 +477,7 @@ html.lenis, html.lenis body { height: auto; }
 
   /* How it works */
   .how { padding: 24px 16px; gap: 32px; }
-  .how.how-v2 { padding: 48px 16px; gap: 32px; }
+  .how.how-v2 { padding: 64px 16px 48px; gap: 32px; }
   .how-steps { grid-template-columns: 1fr; gap: 8px; }
   .how-step { padding: 16px 0; gap: 16px; }
   .how-n { font-size: 64px; }
@@ -526,5 +533,7 @@ html.lenis, html.lenis body { height: auto; }
   .footer-credits { flex-direction: column-reverse; align-items: center; text-align: center; font-size: 12px; gap: 24px; }
   .footer-legal { flex-direction: column; align-items: center; gap: 12px; }
   .footer-logo { margin-bottom: 48px; }
-  .watermark { font-size: calc((100vw - 40px) / 3.314); margin: 32px 0 -.06em; }
+  .watermark { margin-top: 32px; }
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
 }
