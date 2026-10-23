@@ -418,7 +418,7 @@ html.lenis, html.lenis body { height: auto; }
 .js [data-stagger].is-in > * { opacity: 1; transform: none; filter: none; }
 .why-media img, .problem-media img, .final-media img { transition: transform 1.2s var(--ease-smooth-out); }
 .why-media:hover img, .problem-media:hover img { transform: scale(1.03); }
-.why-card { transition: transform var(--duration-medium) var(--ease-bounce-strong), box-shadow var(--duration-medium) var(--ease-smooth-out); }
+.why-card { transition: transform var(--duration-medium) var(--ease-smooth-out), box-shadow var(--duration-medium) var(--ease-smooth-out); }
 .why-card:hover { transform: translateY(calc(var(--distance-micro) * -1)); box-shadow: 0 12px 30px rgba(73,64,65,.08); transition: transform var(--duration-fast) var(--ease-smooth-out), box-shadow var(--duration-fast) var(--ease-smooth-out); }
 
 @media (prefers-reduced-motion: reduce) {
