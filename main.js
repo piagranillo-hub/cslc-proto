@@ -10,7 +10,7 @@ const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
   const blocks = [
     ".problem-media", ".problem-copy > :not(h2)", ".treat-list", ".treat-col",
     ".testimonials .marquee", ".testimonials-cta", ".why-media",
-    ".starting > .btn", ".faq [data-accordion]", ".final-media", ".footer-inner", ".footer .watermark",
+    ".starting > .btn", ".faq [data-accordion]", ".final-media", ".footer-inner",
   ];
   // these containers step aside so their inner pieces can reveal on their own
   document.querySelectorAll(".problem-card, .starting-cols").forEach((el) => el.removeAttribute("data-reveal"));
@@ -167,6 +167,27 @@ const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
   let q = false;
   window.addEventListener("scroll", () => { if (q) return; q = true; requestAnimationFrame(() => { q = false; parallax(); }); }, { passive: true });
   parallax();
+})();
+
+// Footer: "age well" rises a little slower than the page and settles as the footer comes fully into view
+(() => {
+  const footer = document.querySelector(".footer");
+  const mark = footer && footer.querySelector(".watermark");
+  if (!mark || reduceMotion) return;
+  const ease = (t) => 1 - Math.pow(1 - t, 2); // ease-out quad: moves with the scroll, lands gently
+  let q = false;
+  const update = () => {
+    q = false;
+    const r = footer.getBoundingClientRect(), vh = window.innerHeight;
+    // 0 when the footer's top reaches the bottom of the screen, 1 when the footer's bottom reaches it
+    const p = Math.min(1, Math.max(0, (vh - r.top) / r.height));
+    const e = ease(p);
+    mark.style.transform = `translate3d(0, ${((1 - e) * 38).toFixed(2)}%, 0)`;
+    mark.style.opacity = (0.15 + 0.85 * e).toFixed(3);
+  };
+  window.addEventListener("scroll", () => { if (!q) { q = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 })();
 
 // Images: blur-up once loaded and in view
