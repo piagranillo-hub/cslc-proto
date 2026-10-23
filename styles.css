@@ -20,6 +20,7 @@
   --brand-200: #e9d5c8;
   --brand-400: #c9a189;
   --brand-500: #b38870;
+  --brand-text: #8c6450;      /* tan for text: 5.2:1 on white, 4.6:1 on beige (WCAG AA) */
   --neutral-100: #e9e4e3;
   --neutral-300: #c2bebe;
   --neutral-400: #a8a3a3;
@@ -235,7 +236,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- Problem note ---------- */
 .problem-note { background: var(--white); padding: 16px 20px; font-size: 16px; line-height: 1.5; }
-.problem-note em { font-style: normal; color: var(--brand-500); }
+.problem-note em { font-style: normal; color: var(--brand-text); }
 .starting .h2 em { font-style: normal; }
 
 /* ---------- Treatments: scroll-driven + before/after ---------- */
@@ -243,7 +244,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .treat-sticky { min-height: calc(100vh - 78px); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 48px; padding: var(--section-y) 0; }
 .js .treatments[data-treat-section] { height: 340vh; }
 .js .treat-sticky { position: sticky; top: 78px; height: calc(100vh - 78px); padding: 32px 0; }
-.treat-panel strong { font-weight: 400; color: var(--brand-500); }
+.treat-panel strong { font-weight: 400; color: var(--brand-text); }
 .treat-panel .treat-good strong { font-weight: 500; color: var(--text-primary); }
 .treat-progress { display: none; }
 .treat-col { width: 600px; flex: none; display: flex; flex-direction: column; gap: 12px; }
@@ -563,7 +564,7 @@ html.lenis, html.lenis body { height: auto; }
 
   /* Which sounds like you */
   .starting { padding: 24px 16px 48px; gap: 32px; }
-  .starting .h2, .starting .h2 em { font-style: normal; color: var(--brand-500); }
+  .starting .h2, .starting .h2 em { font-style: normal; color: var(--brand-text); }
   .starting-cols { grid-template-columns: 1fr; }
   .starting-cols .acc-col + .acc-col > .acc-item:first-child { padding-top: 28px; }
   .starting .btn { width: 100%; }
