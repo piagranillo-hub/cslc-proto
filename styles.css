@@ -300,13 +300,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .ill-check { width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--brand-400); color: var(--white); display: grid; place-items: center; }
 .ill-toast.ghost .ill-check { background: var(--neutral-100); }
 .ill-check .icon { width: 14px; height: 14px; stroke-width: 1.6; }
-.ill-plan { width: 84%; padding: 14px; background: var(--white); box-shadow: 0 1px 2px rgba(73,64,65,.06), 0 8px 24px rgba(73,64,65,.08); display: flex; flex-direction: column; gap: 10px; font-size: 11px; }
+.ill-plan { width: 84%; padding: 14px; background: var(--white); box-shadow: 0 1px 2px rgba(73,64,65,.06), 0 8px 24px rgba(73,64,65,.08); display: flex; flex-direction: column; gap: 10px; font-size: 12px; }
 .ill-title { font-family: var(--font-heading); font-weight: 400; font-size: 16px; letter-spacing: -0.01em; }
 .ill-timeline { position: relative; display: flex; justify-content: space-between; }
 .ill-timeline::before { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 1px; background: var(--neutral-100); }
 .ill-timeline i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-400); }
 .ill-labels, .ill-meta { display: flex; justify-content: space-between; }
-.ill-meta { padding-top: 8px; border-top: 1px solid var(--neutral-100); color: var(--neutral-400); }
+.ill-meta { padding-top: 8px; border-top: 1px solid var(--neutral-100); color: #7a7273; }
 
 /* ---------- Photo credits (Figma: 14px Light, brown) ---------- */
 .photo-credit { font-size: 14px; font-weight: 300; line-height: 1.5; color: var(--text-primary); }
