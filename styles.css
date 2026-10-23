@@ -141,7 +141,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .treat-panel p { padding-top: 16px; }
 .treat-good { margin-top: 16px; padding: 0 12px; border-left: 1px solid var(--brand-500); display: flex; flex-direction: column; font-size: 16px; line-height: 1.5; }
 .treat-good strong { font-weight: 500; color: var(--text-primary); }
-.treat-good em { font-style: normal; font-weight: 400; }  /* Regular: the Adobe kit has no Light Italic */
+.treat-good em { font-style: normal; font-weight: 300; }  /* Light, no italic (the Adobe kit has no Light Italic) */
 .treat-disclaimer { font-size: 12px; color: var(--neutral-400); }
 
 /* ---------- Testimonials ---------- */
