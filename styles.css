@@ -295,8 +295,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .ill-stack { width: 84%; display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .ill-toast { width: 100%; display: flex; align-items: center; gap: 10px; padding: 12px; background: var(--white); box-shadow: 0 1px 2px rgba(73,64,65,.06), 0 8px 24px rgba(73,64,65,.08); font-size: 12px; line-height: 1.4; }
 .ill-toast strong { display: block; font-weight: 500; color: var(--text-primary); }
-.ill-toast span:not(.ill-check) { color: var(--neutral-400); font-size: 11px; }
-.ill-toast.ghost { width: 90%; opacity: .5; box-shadow: none; }
+.ill-toast span:not(.ill-check) { color: #7a7273; font-size: 12px; }
+.ill-toast.ghost { width: 90%; opacity: .75; box-shadow: none; }
 .ill-check { width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--brand-400); color: var(--white); display: grid; place-items: center; }
 .ill-toast.ghost .ill-check { background: var(--neutral-100); }
 .ill-check .icon { width: 14px; height: 14px; stroke-width: 1.6; }
@@ -332,7 +332,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   transition: opacity 560ms var(--ease-smooth-out), transform 560ms var(--ease-smooth-out), filter 560ms var(--ease-smooth-out); transition-delay: 720ms; }
 .js .ill-toast.ghost { transform: translateY(-14px) scale(.9); transition-delay: 2160ms; transition-duration: 800ms; }
 .js .is-play .ill-toast { opacity: 1; transform: none; filter: none; }
-.js .is-play .ill-toast.ghost { opacity: .5; }
+.js .is-play .ill-toast.ghost { opacity: .75; }
 .ill-check { transition: transform 640ms cubic-bezier(0.34, 1.45, 0.64, 1) 1120ms; }
 .js .ill-check:not(:empty) { transform: scale(.4); }
 .js .is-play .ill-check { transform: none; }
