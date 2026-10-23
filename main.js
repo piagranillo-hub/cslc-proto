@@ -137,6 +137,36 @@ const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
   nums.forEach((n) => io.observe(n));
 })();
 
+// How it works: each step plays its animation once it's in view; photos drift with the scroll
+(() => {
+  const steps = [...document.querySelectorAll("[data-how-steps] .how-step")];
+  if (!steps.length) return;
+  steps.forEach((s, i) => s.style.setProperty("--step", isDesktop() ? i : 0));
+  if (reduceMotion || !("IntersectionObserver" in window)) return steps.forEach((s) => s.classList.add("is-play"));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("is-play");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -15% 0px" });
+  steps.forEach((s) => io.observe(s));
+
+  const photos = [...document.querySelectorAll(".how-ill.photo")];
+  const parallax = () => {
+    const vh = window.innerHeight;
+    photos.forEach((f) => {
+      const r = f.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const p = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1 … 1 across the viewport
+      f.style.setProperty("--plx", `${(p * r.height * 0.07).toFixed(1)}px`);
+    });
+  };
+  let q = false;
+  window.addEventListener("scroll", () => { if (q) return; q = true; requestAnimationFrame(() => { q = false; parallax(); }); }, { passive: true });
+  parallax();
+})();
+
 // Images: blur-up once loaded and in view
 (() => {
   const imgs = document.querySelectorAll("img.t-img");

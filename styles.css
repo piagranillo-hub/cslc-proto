@@ -312,6 +312,52 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .why-photo .why-media { flex: 1; }
 .mobile-only { display: none; }
 
+/* ---------- How it works: step animations (transitions.dev recipes + Lenis-driven parallax) ---------- */
+/* each step plays once when it enters view (.is-play), cards follow each other by --step */
+.js .how-step { opacity: 0; transform: translateY(var(--distance-medium)); filter: blur(var(--blur-medium));
+  transition: opacity var(--duration-very-slow) var(--ease-smooth-out), transform var(--duration-very-slow) var(--ease-smooth-out), filter var(--duration-very-slow) var(--ease-smooth-out);
+  transition-delay: calc(var(--step, 0) * 120ms); }
+.js .how-step.is-play { opacity: 1; transform: none; filter: none; }
+/* Number pop-in */
+.js .how-n { display: inline-block; opacity: 0; transform: translateY(.18em); filter: blur(3px);
+  transition: opacity 600ms var(--ease-smooth-out), transform 600ms cubic-bezier(0.34, 1.45, 0.64, 1), filter 600ms var(--ease-smooth-out);
+  transition-delay: calc(var(--step, 0) * 120ms + 350ms); }
+.js .how-step.is-play .how-n { opacity: 1; transform: none; filter: none; }
+/* Card 1: toast rises, check draws, reminder stacks in behind */
+.js .ill-toast { opacity: 0; transform: translateY(16px) scale(.97); filter: blur(2px);
+  transition: opacity 350ms var(--ease-smooth-out), transform 350ms var(--ease-smooth-out), filter 350ms var(--ease-smooth-out); transition-delay: 450ms; }
+.js .ill-toast.ghost { transform: translateY(-14px) scale(.9); transition-delay: 1350ms; transition-duration: 500ms; }
+.js .is-play .ill-toast { opacity: 1; transform: none; filter: none; }
+.js .is-play .ill-toast.ghost { opacity: .5; }
+.ill-check { transition: transform 400ms cubic-bezier(0.34, 1.45, 0.64, 1) 700ms; }
+.js .ill-check:not(:empty) { transform: scale(.4); }
+.js .is-play .ill-check { transform: none; }
+.ill-check-mark { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.ill-check-mark path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 420ms ease-out 950ms; }
+.no-js .ill-check-mark path, .is-play .ill-check-mark path { stroke-dashoffset: 0; }
+/* Card 3: plan resolves from a skeleton, the timeline draws and the milestones light up in order */
+.js .ill-plan { opacity: 0; filter: blur(2px); transition: opacity 400ms ease-in-out 450ms, filter 400ms ease-in-out 450ms; }
+.js .is-play .ill-plan { opacity: 1; filter: none; }
+.ill-timeline::before { transform-origin: left center; transition: transform 900ms var(--ease-smooth-out) 800ms; }
+.js .ill-timeline::before { transform: scaleX(0); }
+.js .is-play .ill-timeline::before { transform: none; }
+.ill-timeline i { transition: transform 350ms cubic-bezier(0.34, 1.45, 0.64, 1), background-color 350ms ease; }
+.js .ill-timeline i { transform: scale(0); }
+.js .is-play .ill-timeline i { transform: none; }
+.ill-timeline i:nth-child(1) { transition-delay: 800ms; }
+.ill-timeline i:nth-child(2) { transition-delay: 1150ms; }
+.ill-timeline i:nth-child(3) { transition-delay: 1500ms; }
+.ill-labels span, .ill-meta { transition: opacity 400ms ease; }
+.js .ill-labels span, .js .ill-meta { opacity: 0; }
+.js .is-play .ill-labels span, .js .is-play .ill-meta { opacity: 1; }
+.ill-labels span:nth-child(1) { transition-delay: 850ms; }
+.ill-labels span:nth-child(2) { transition-delay: 1200ms; }
+.ill-labels span:nth-child(3) { transition-delay: 1550ms; }
+.ill-meta { transition-delay: 1800ms; }
+/* Cards 2 and 4: photos drift inside their frame as you scroll */
+.how-ill.photo img { inset: -8% 0; height: 116%; transform: translate3d(0, var(--plx, 0px), 0); will-change: transform; }
+.js .how-ill.photo img.t-img { transition: opacity var(--duration-very-slow) ease-in-out, filter var(--duration-very-slow) ease-in-out; }
+
 /* ---------- Testimonials marquee ---------- */
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
 .marquee-track { display: flex; gap: 20px; width: max-content; animation: marquee 70s linear infinite; }
@@ -377,6 +423,7 @@ html.lenis, html.lenis body { height: auto; }
   .js img.t-img { opacity: 1; filter: none; transition: none; }
   .js .hero-media img.t-img { opacity: 1; transition: none; }
   .mobile-cta { transition: none !important; }
+  .how-step, .how-step * , .how-step *::before { transition: none !important; }
   .js [data-reveal], .js [data-stagger] > *, .js [data-lines] .t-wi, .js [data-words] .t-wi, 
   .js .treatments[data-treat-section] { height: auto; }
   .js .treat-sticky { position: static; height: auto; }
