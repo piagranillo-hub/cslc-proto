@@ -143,7 +143,7 @@ const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
   if (!steps.length) return;
   steps.forEach((s, i) => s.style.setProperty("--step", isDesktop() ? i : 0));
   if (reduceMotion || !("IntersectionObserver" in window)) return steps.forEach((s) => s.classList.add("is-play"));
-  // play only once the step's card is really in view (most of it on screen)
+  // play only once the step's card is fully in view and clear of the bottom fifth of the screen
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
@@ -151,7 +151,7 @@ const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
       step.classList.add("is-play");
       io.unobserve(e.target);
     });
-  }, { threshold: 0.75 });
+  }, { threshold: 1, rootMargin: "0px 0px -20% 0px" });
   steps.forEach((s) => io.observe(s.querySelector(".how-ill") || s));
 
   const photos = [...document.querySelectorAll(".how-ill.photo")];
