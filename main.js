@@ -223,7 +223,13 @@ document.querySelectorAll("[data-ba]").forEach((el) => {
   if (!section) return;
   const items = [...section.querySelectorAll(".treat-item")];
   const slides = [...section.querySelectorAll(".ba-slide")];
+  const col = section.querySelector(".treat-col"), treat = section.querySelector(".treat");
   let current = 0;
+  // mobile: the before/after sits inside the open treatment, under "May be good for"; desktop: its own column
+  const placeCol = () => {
+    const home = isDesktop() ? treat : items[current].querySelector(".treat-panel > div");
+    if (col.parentElement !== home) home.appendChild(col);
+  };
   const activate = (i) => {
     if (i === current) return;
     current = i;
@@ -232,7 +238,10 @@ document.querySelectorAll("[data-ba]").forEach((el) => {
       item.querySelector(".treat-trigger").setAttribute("aria-expanded", j === i);
     });
     slides.forEach((s, j) => s.classList.toggle("is-active", j === i));
+    placeCol();
   };
+  placeCol();
+  window.matchMedia("(min-width: 901px)").addEventListener("change", placeCol);
   const scrollable = () => isDesktop() && !reduceMotion;
   const onScroll = () => {
     if (!scrollable()) return;
@@ -247,7 +256,14 @@ document.querySelectorAll("[data-ba]").forEach((el) => {
         const total = section.offsetHeight - window.innerHeight;
         const top = section.getBoundingClientRect().top + window.scrollY + total * ((i + 0.5) / items.length);
         window.__lenis ? window.__lenis.scrollTo(top) : window.scrollTo({ top, behavior: "smooth" });
-      } else activate(i);
+      } else {
+        activate(i);
+        // wait for the previous panel to finish collapsing, then bring the opened title into view
+        setTimeout(() => {
+          const top = item.getBoundingClientRect().top + window.scrollY - 90;
+          window.__lenis ? window.__lenis.scrollTo(top) : window.scrollTo({ top, behavior: "smooth" });
+        }, 320);
+      }
     });
   });
   window.addEventListener("scroll", () => requestAnimationFrame(onScroll), { passive: true });

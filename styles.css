@@ -518,10 +518,11 @@ html.lenis, html.lenis body { height: auto; }
   .js .treat-sticky, .treat-sticky { position: static; height: auto; min-height: 0; padding: 0; gap: 24px; align-items: stretch; }
   .section-head { text-align: left; gap: 16px; }
   .section-head p { font-size: 16px; }
-  /* Figma order on mobile: before/after, disclaimer, list */
+  /* Figma mobile: the before/after + disclaimer open inside the active treatment (moved there by main.js) */
   .treat { flex-direction: column; align-items: stretch; gap: 24px; }
-  .treat-col { display: contents; }
-  .ba { order: 1; } .treat-disclaimer { order: 2; margin-top: -16px; } .treat-list { order: 3; width: 100%; }
+  .treat-list { width: 100%; }
+  .treat-col { width: 100%; margin-top: 16px; gap: 8px; }
+  .treat-panel .treat-disclaimer { font-size: 14px; padding-top: 0; }
   .treat-list { gap: 32px; }
   .treat-trigger.h4 { font-size: 24px; }
   .treat-panel p { font-size: 18px; }
