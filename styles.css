@@ -583,6 +583,8 @@ html.lenis, html.lenis body { height: auto; }
   .final-copy .h1 { font-size: 48px; line-height: 1.1; }
   .final-copy p { font-size: 18px; }
   .final-copy .btn { width: 100%; }
+  /* Mobile: the sticky bar is the only CTA once the hero CTA has scrolled away */
+  .testimonials-cta, .starting-btn, .final-btn { display: none; }
   .final-media { height: 340px; }
   .final-media img { left: 0; top: 0; width: 100%; height: 100%; object-position: center bottom; }
 

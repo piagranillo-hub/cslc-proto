@@ -362,5 +362,9 @@ document.querySelectorAll("[data-accordion] .acc-item").forEach((item) => {
   const bar = document.querySelector(".mobile-cta");
   const heroCta = document.querySelector("[data-hero-cta]");
   if (!bar || !heroCta) return;
-  new IntersectionObserver(([e]) => bar.classList.toggle("is-open", !e.isIntersecting && e.boundingClientRect.top < 0)).observe(heroCta);
+  // the sticky nav covers the top of the screen, so the hero CTA counts as gone once it slides under it
+  const navH = document.querySelector(".nav")?.offsetHeight || 0;
+  const update = () => bar.classList.toggle("is-open", heroCta.getBoundingClientRect().bottom < navH);
+  window.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+  update();
 })();
