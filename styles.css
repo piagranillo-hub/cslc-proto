@@ -250,19 +250,20 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .treat-panel .treat-good strong { font-weight: 500; color: var(--text-primary); }
 .treat-progress { display: none; }
 .treat-col { width: min(600px, calc(100vh - 380px)); flex: none; display: flex; flex-direction: column; gap: 16px; }
-.ba { --pos: 50%; position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; background: #e7e7e7; user-select: none; touch-action: pan-y; }
+.ba { --pos: 25%; position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; background: #e7e7e7; user-select: none; touch-action: pan-y; }
 .ba-slide { position: absolute; inset: 0; opacity: 0; filter: blur(var(--blur-small)); transition: opacity var(--duration-slow) var(--ease-smooth-out), filter var(--duration-slow) var(--ease-smooth-out); }
 .ba-slide.is-active { opacity: 1; filter: blur(0); }
 .ba-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transform: scale(1.02); transition: transform 1.2s var(--ease-smooth-out); }
 .ba-slide.is-active img { transform: scale(1); }
-.ba-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.ba-before::after { content: ""; position: absolute; inset: 0; background: rgb(73 64 65 / .22); pointer-events: none; }
+/* the base image is "before" (right of the handle, under Figma's 22% veil); .ba-reveal is "after", clipped to the left, so dragging right reveals the result */
+.ba-slide::after { content: ""; position: absolute; inset: 0; background: rgb(73 64 65 / .22); pointer-events: none; }
+.ba-reveal { position: absolute; inset: 0; z-index: 1; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .ba-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 1px; background: var(--white); transform: translateX(-.5px); pointer-events: none; z-index: 2; }
 .ba-handle { position: absolute; top: 50%; left: var(--pos); transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; background: var(--white); display: flex; align-items: center; justify-content: center; color: var(--text-primary); pointer-events: none; z-index: 3; box-shadow: 0 2px 10px rgba(0,0,0,.08); transition: transform var(--duration-fast) var(--ease-smooth-out); }
 .ba:hover .ba-handle { transform: translate(-50%, -50%) scale(1.08); }
 .ba-handle .icon { width: 16px; height: 16px; stroke-width: 1.4; }
 .ba-tag { position: absolute; top: 24px; z-index: 2; font-weight: 500; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--white); background: rgba(73,64,65,.72); padding: 4px 10px; pointer-events: none; }
-.ba-tag.before { left: 24px; } .ba-tag.after { right: 24px; }
+.ba-tag.after { left: 24px; } .ba-tag.before { right: 24px; }
 .ba input[type=range] { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
 .ba input[type=range]:focus-visible ~ .ba-handle { outline: 2px solid var(--brand-400); outline-offset: 3px; }
 
@@ -528,7 +529,7 @@ html.lenis, html.lenis body { height: auto; }
   .treat-panel p { font-size: 18px; }
   .treat-panel br { display: none; }
   .ba { aspect-ratio: 1; max-height: none; }
-  .ba-tag { top: 12px; font-size: 10px; padding: 3px 8px; } .ba-tag.before { left: 12px; } .ba-tag.after { right: 12px; }
+  .ba-tag { top: 12px; font-size: 10px; padding: 3px 8px; } .ba-tag.after { left: 12px; } .ba-tag.before { right: 12px; }
   .ba-handle { width: 36px; height: 36px; }
 
   /* How it works */
