@@ -263,12 +263,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .ba-handle .icon { width: 16px; height: 16px; stroke-width: 1.4; }
 .ba-tag { position: absolute; top: 24px; z-index: 2; font-weight: 500; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--white); background: rgba(73,64,65,.72); padding: 4px 10px; pointer-events: none; }
 .ba-tag.after { left: 24px; } .ba-tag.before { right: 24px; }
-/* each label grows slightly (up to 15%) and darkens (72% → fully opaque) as its side takes over the frame; unchanged at the centre or less */
-.ba-tag { transition: transform var(--duration-quick) var(--ease-smooth-out), background-color var(--duration-quick) var(--ease-smooth-out); }
-.ba-tag.after { --k: max(0, var(--p) - .5); }
-.ba-tag.before { --k: max(0, .5 - var(--p)); }
+/* each label grows slightly (up to 15%) and darkens (72% → fully opaque) as its side takes over the frame,
+   while the receding label fades to 60%; both unchanged at the centre */
+.ba-tag { transition: transform var(--duration-quick) var(--ease-smooth-out), background-color var(--duration-quick) var(--ease-smooth-out), opacity var(--duration-quick) var(--ease-smooth-out); }
+.ba-tag.after { --k: max(0, var(--p) - .5); --f: max(0, .5 - var(--p)); }
+.ba-tag.before { --k: max(0, .5 - var(--p)); --f: max(0, var(--p) - .5); }
 .ba-tag.after { transform-origin: top left; } .ba-tag.before { transform-origin: top right; }
-.ba-tag.after, .ba-tag.before { transform: scale(calc(1 + var(--k) * .3)); background: rgb(73 64 65 / calc(.72 + var(--k) * .56)); }
+.ba-tag.after, .ba-tag.before { transform: scale(calc(1 + var(--k) * .3)); background: rgb(73 64 65 / calc(.72 + var(--k) * .56)); opacity: calc(1 - var(--f) * .8); }
 .ba input[type=range] { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
 .ba input[type=range]:focus-visible ~ .ba-handle { outline: 2px solid var(--brand-400); outline-offset: 3px; }
 
