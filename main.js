@@ -204,7 +204,7 @@ const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
 // Before/after drag (pointer or keyboard via range input)
 document.querySelectorAll("[data-ba]").forEach((el) => {
   const input = el.querySelector("input[type=range]");
-  const set = (v) => { el.style.setProperty("--pos", v + "%"); input.value = v; };
+  const set = (v) => { el.style.setProperty("--pos", v + "%"); el.style.setProperty("--p", v / 100); input.value = v; };
   input.addEventListener("input", () => set(input.value));
   const fromPointer = (e) => {
     const r = el.getBoundingClientRect();
